@@ -14,7 +14,6 @@
             </strong>
             <span>Documentation</span>
         </a>
-        <sup>Beta</sup>
     </header>
 
     <!--
@@ -37,18 +36,20 @@
 <span class="name">extract(case:​from:​)</span>
 </h1>
 
-<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">extract</span>&lt;<span class="variable">Root</span>, <span class="variable">Value</span>&gt;(<span class="variable">case</span> <span class="variable">embed</span>: (<span class="type">Value</span>) -&gt; <span class="type">Root</span>, <span class="variable">from</span> <span class="variable">root</span>: <span class="type">Root</span>) -&gt; <span class="type">Value</span>?</code></pre></body></html>
+<div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">extract</span>&lt;<span class="variable">Root</span>, <span class="variable">Value</span>&gt;(<span class="variable">case</span> <span class="variable">embed</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">Value</span>) -&gt; <span class="type">Root</span>, <span class="variable">from</span> <span class="variable">root</span>: <span class="type">Root</span>) -&gt; <span class="type">Value</span>?  </body></html></code></pre>
+</div>
 <div class="summary" role="doc-abstract">
     <p>Attempts to extract values associated with a given enum case initializer from a given root enum.</p>
 
 </div>
 <div class="discussion">
-    <html><body><pre class="highlight"><code><span class="variable">extract</span>(<span class="variable">case</span>: <span class="type">Result</span>&lt;<span class="type">Int</span>, <span class="type">Error</span>&gt;.<span class="type">success</span>, <span class="variable">from</span>: .<span class="variable">success</span>(<span class="number literal">42</span>))
+    <html><body><pre class="highlight"><code><span class="variable">extract</span>(<span class="variable">case</span>: <span class="type">Result</span>&lt;<span class="type">Int</span>, <span class="type">Error</span>&gt;.<span class="variable">success</span>, <span class="variable">from</span>: .<span class="variable">success</span>(<span class="number literal">42</span>))
 <span class="comment">// 42</span>
-<span class="variable">extract</span>(<span class="variable">case</span>: <span class="type">Result</span>&lt;<span class="type">Int</span>, <span class="type">Error</span>&gt;.<span class="type">success</span>, <span class="variable">from</span>: .<span class="variable">failure</span>(<span class="variable">MyError</span>())
+<span class="variable">extract</span>(<span class="variable">case</span>: <span class="type">Result</span>&lt;<span class="type">Int</span>, <span class="type">Error</span>&gt;.<span class="variable">success</span>, <span class="variable">from</span>: .<span class="variable">failure</span>(<span class="variable">MyError</span>())
 <span class="comment">// nil</span>
 </code></pre></body></html>
-<aside class="note">
+<aside class="note" title="Note">
     <p>This function is only intended to be used with enum case initializers. Its behavior is otherwise undefined.</p>
 
 </aside>
@@ -66,7 +67,7 @@
   <tbody>
     <tr>
     <th>embed</th>
-    <td><code class="type">(Value) -&gt; Root</code></td>
+    <td><code class="type">@escaping (Value) -&gt; Root</code></td>
     <td><p>An enum case initializer.</p>
 </td>
 </tr>
@@ -86,7 +87,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-15T15:15:18+0000">April 15, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-07-05T13:58:42+0000">July 5, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>

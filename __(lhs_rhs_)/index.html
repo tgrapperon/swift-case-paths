@@ -14,7 +14,6 @@
             </strong>
             <span>Documentation</span>
         </a>
-        <sup>Beta</sup>
     </header>
 
     <!--
@@ -37,7 +36,12 @@
 <span class="name">.​.​(lhs:​rhs:​)</span>
 </h1>
 
-<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> ..&lt;<span class="variable">Root</span>, <span class="variable">Value</span>, <span class="variable">AppendedValue</span>&gt;(<span class="variable">lhs</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">Root</span>) -&gt; <span class="type">Value</span>?, <span class="variable">rhs</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">AppendedValue</span>) -&gt; <span class="type">Value</span>) -&gt; (<span class="type">Root</span>) -&gt; <span class="type">AppendedValue</span>?</code></pre></body></html>
+<div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">func</span> .. &lt;<span class="variable">Root</span>, <span class="variable">Value</span>, <span class="variable">AppendedValue</span>&gt;(
+  <span class="variable">lhs</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">Root</span>) -&gt; <span class="type">Value</span>?,
+  <span class="variable">rhs</span>: <span class="attribute">@</span><span class="attribute">escaping</span> (<span class="type">AppendedValue</span>) -&gt; <span class="type">Value</span>
+) -&gt; (<span class="type">Root</span>) -&gt; <span class="type">AppendedValue</span>?  </body></html></code></pre>
+</div>
 <div class="summary" role="doc-abstract">
     <p>Returns a new extract function by appending the given extract function with an embed function.</p>
 
@@ -45,8 +49,8 @@
 <div class="discussion">
     <p>Useful when composing extract functions together.</p>
 
-<html><body><pre class="highlight"><code>[<span class="type">Result</span>&lt;<span class="type">Int</span>?, <span class="type">Error</span>&gt;.<span class="type">success</span>(.<span class="variable">some</span>(<span class="number literal">42</span>)), .<span class="variable">success</span>(<span class="keyword">nil</span>), .<span class="variable">failure</span>(<span class="variable">MyError</span>())]
-  .<span class="type">compactMap</span>(/<span class="variable">Result</span>.<span class="type">success</span>..<span class="variable">Optional</span>.<span class="type">some</span>)
+<html><body><pre class="highlight"><code>[<span class="type">Result</span>&lt;<span class="type">Int</span>?, <span class="type">Error</span>&gt;.<span class="variable">success</span>(.<span class="variable">some</span>(<span class="number literal">42</span>)), .<span class="variable">success</span>(<span class="keyword">nil</span>), .<span class="variable">failure</span>(<span class="variable">MyError</span>())]
+  .<span class="variable">compactMap</span>(/<span class="variable">Result</span>.<span class="variable">success</span>..<span class="variable">Optional</span>.<span class="variable">some</span>)
 <span class="comment">// [42]</span>
 </code></pre></body></html>
 </div>
@@ -83,7 +87,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2021-04-15T15:15:18+0000">April 15, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-beta.5</span>.
+    Generated on <time datetime="2021-07-05T13:58:42+0000">July 5, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>
