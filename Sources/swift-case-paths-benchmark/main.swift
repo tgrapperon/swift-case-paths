@@ -46,7 +46,39 @@ let failure = BenchmarkSuite(name: "Failure") {
   }
 }
 
+// The same as above, using swift-measure's `Study`.
+let extraction = BenchmarkSuite("Extraction") {
+  $0.addStudy("Success") {
+    $0.benchmarkReference("Manual") {
+      precondition(manual.extract(from: enumCase) == 42)
+    }
+
+    $0.benchmark("Reflection") {
+      precondition(reflection.extract(from: enumCase) == 42)
+    }
+    
+    $0.benchmark("Reflection (uncached)") {
+      precondition((/Enum.associatedValue).extract(from: enumCase) == 42)
+    }
+  }
+  
+  $0.addStudy("Failure") {
+    $0.benchmarkReference("Manual") {
+      precondition(manual.extract(from: anotherCase) == nil)
+    }
+    
+    $0.benchmark("Reflection") {
+      precondition(reflection.extract(from: anotherCase) == nil)
+    }
+    
+    $0.benchmark("Reflection (uncached)") {
+      precondition((/Enum.associatedValue).extract(from: anotherCase) == nil)
+    }
+  }
+}
+
 Benchmark.main([
   success,
   failure,
+  extraction,
 ])
